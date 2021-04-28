@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 require('dotenv').config(); 
+var bodyParser = require('body-parser');
 
 app.use("/public", express.static(__dirname + "/public"));
 
@@ -8,6 +9,8 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next();
 });
+
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/name', (req, res) => {
     var firstName = req.query.first;
