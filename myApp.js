@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 });
 
 
-app.get('GET /:word/echo', (req, res, next) => {
+app.get('/:word/echo', (req, res, next) => {
     req.word = req.params.word;
     next();
 }, (req, res) => {
