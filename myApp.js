@@ -9,14 +9,21 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/name', (req, res) => {
+    var firstName = req.query.first;
+    var lastName = req.query.last;
+    res.json({name: `${firstName} ${lastName}`});
+});
 
+
+/* Challenge 9 
 app.get('/:word/echo', (req, res, next) => {
     req.word = req.params.word;
     next();
 }, (req, res) => {
     res.json({echo: req.word});
 });
-
+*/
 
 /*
 app.get('/now', (req, res, next) => {
