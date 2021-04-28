@@ -12,6 +12,13 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({extended: false}))
 
+
+app.post('/name', (req, res) => {
+    var firstName = req.query.first;
+    var lastName = req.query.last;
+    res.json({name: `${firstName} ${lastName}`});
+})
+
 app.get('/name', (req, res) => {
     var firstName = req.query.first;
     var lastName = req.query.last;
@@ -46,12 +53,12 @@ app.get("/", (req, res) => {
 })
 */
 
-/* Challenge 3 
+
 app.get("/", (req, res) => {
     const absolutePath = __dirname + "/views/index.html";
     res.sendFile(absolutePath);
 });
-*/
+
 
 /*
 app.get("/json", (req, res) => {
