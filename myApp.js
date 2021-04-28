@@ -10,13 +10,22 @@ app.use((req, res, next) => {
 });
 
 
+app.get('GET /:word/echo', (req, res, next) => {
+    req.word = req.params.word;
+    next();
+}, (req, res) => {
+    res.json({echo: req.word});
+});
+
+
+/*
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
 }, (req, res) => {
     res.json({time: req.time});
 });
-
+/*
 /* Challenge 1
 console.log("Hello World");
 */
