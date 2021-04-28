@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 /* Challenge 3 */
 app.get("/", (req, res) => {
     const absolutePath = __dirname + "/views/index.html";
-    res.send(absolutePath);
+    res.sendFile(absolutePath);
 });
 
 
